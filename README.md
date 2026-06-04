@@ -1,17 +1,19 @@
 # When, why, and how do diffusion posterior samplers fail? A finite-sample lens
 
-Official code for the paper *"When, why, and how do diffusion posterior samplers
-fail? A finite-sample lens"* by Benjamin A. Burns and Sara Fridovich-Keil
-(Georgia Institute of Technology, 2026) —
-[arXiv:2605.30330](https://arxiv.org/abs/2605.30330).
+Official code for 
+
+- Title: *"When, why, and how do diffusion posterior samplers fail? A finite-sample lens"*
+- Authors: Benjamin A. Burns and Sara Fridovich-Keil
+- Affil: Georgia Institute of Technology
+- Link: [arXiv:2605.30330](https://arxiv.org/abs/2605.30330).
 
 Diffusion-based posterior samplers must replace the intractable likelihood
-`p(y | x_t)` at intermediate diffusion times with an inexact approximation, and
+$p(\mathbf y \mid \mathbf x_t)$ at intermediate diffusion times with an inexact approximation, and
 the downstream effect of that approximation on the sampled posterior is poorly
 understood. This library provides a **finite-sample reference (FSR)**: by treating
-the prior as the empirical measure of `N` samples, the posterior becomes
+the prior as the empirical measure of $N$ samples, the posterior becomes
 analytically computable at every diffusion time and approaches the true posterior
-as `N → ∞`, for any forward model and prior. Measuring the popular approximations
+as $N \to \infty$, for any forward model and prior. Measuring the popular approximations
 (DPS, ΠiGDM, TMPD) against the FSR reveals *when, why, and how* they fail — they
 tend to under- or over-estimate the posterior spread at intermediate times,
 causing sensitivity to early-stopping time, inaccurate relative weighting of
@@ -26,7 +28,9 @@ a forward model, and recover posterior samples in a few lines.
 ## Install
 
 ```bash
+# Install uv (if you don't have it already)
 curl -LsSf https://astral.sh/uv/install.sh | sh
+# Install dependencies
 uv sync                    # runtime + test dependencies
 uv sync --group docs       # docs toolchain (optional)
 ```
@@ -47,7 +51,7 @@ samples = run_fsr(atoms, y, forward, noise_scale=0.3)
 ```
 
 `samples` has shape `(num_particles, d)` and is drawn from the FSR approximation to
-`p(x_0 | y)`. If your data is a NumPy array, a CSV, a `.pt` file, or a list of
+`p(x_0 | y)`. If your data is a `numpy` array, a CSV, a `.pt` file, or a list of
 individual sample tensors, `src.data_loaders` (`from_numpy`, `from_csv`,
 `from_torch_file`, `from_tensors`) lands it into the `(N, d)` tensor `run_fsr`
 expects. See `examples/quickstart.py` for the full version with a plotted
@@ -57,16 +61,16 @@ histogram; run it with:
 uv run python -m examples.quickstart
 ```
 
-## What's in here — and what it's for
+## Repo layout
 
 - `src/fsr.py` (`run_fsr`) / `src/scores/fsr.py` (`FSR`) — the **finite-sample
   reference**: the analytic finite-sample posterior that every approximation is
   measured against (paper §4).
 - `src/scores/` — the likelihood-score approximations the paper compares:
-  - `dps.py` — **σ-DPS / ζ-DPS** (Chung et al. 2023): one-moment Dirac denoiser
+  - `dps.py` — **$\sigma$-DPS / $\zeta$-DPS** (Chung et al. 2023): one-moment Dirac denoiser
     approximation; works for any forward model. ζ-DPS adds a data-dependent
     likelihood weight.
-  - `pigdm.py` — **ΠiGDM** (Song et al. 2023): two-moment Gaussian approximation
+  - `pigdm.py` — **$\Pi$GDM** (Song et al. 2023): two-moment Gaussian approximation
     with an isotropic denoiser covariance; **linear forward models only**.
   - `tmpd.py` — **TMPD** (Boys et al. 2024): two-moment Gaussian approximation
     using the true denoiser covariance; **linear forward models only**.
@@ -90,14 +94,12 @@ uv run python -m examples.quickstart
 - `tests/` — pytest suite.
 - `docsrc/` — Sphinx documentation source (build from `docsrc/source/`).
 
-## Toward the paper's figures
+## Producing figures
 
 The shipped examples plus `examples/_common/heatmap.py` reproduce the *kinds* of
 figures in the paper on the small testbeds: `heatmap_example.py` builds a
 `(t, x)` density map like the "True posterior" / FSR column of the linear
 multimodal grid, and `compare_methods.py` builds the per-method posterior overlay.
-The exact paper-figure drivers (full grids, TV-convergence sweeps, nonlinear
-operators) are not shipped here — see the arXiv source for those.
 
 ## Citation
 
@@ -115,4 +117,4 @@ operators) are not shipped here — see the arXiv source for those.
 
 ## License
 
-MIT. See `LICENSE`.
+See `LICENSE`.
