@@ -1,0 +1,73 @@
+[project]
+name = "diagnosing-posterior-sampling"
+version = "0.1.0"
+description = "Finite-sample diagnostics for diffusion posterior samplers (Burns & Fridovich-Keil, 2026)"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "pytest>=9.0.2",
+    "scipy>=1.16.3",
+    "seaborn>=0.13.2",
+    "torch>=2.9.1",
+    "tqdm>=4.67.1",
+    "wandb>=0.22.3",
+]
+
+[dependency-groups]
+dev = [
+    "pydoclint>=0.8.3",
+    "pydocstyle>=6.3.0",
+    "pytest>=9.0.2",
+    "ruff>=0.15.4",
+    "ty>=0.0.20",
+]
+docs = [
+    "sphinx>=8.1.3",
+    "pydata-sphinx-theme>=0.16.1",
+    "myst-nb>=1.3.0",
+    "sphinx-design>=0.6.1",
+    "sphinxcontrib-bibtex>=2.6.5",
+    "snowballstemmer>=3.0.1",
+]
+
+[tool.ruff]
+line-length = 100
+preview = true
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors (PEP 8 violations like whitespace, indentation)
+    "W",      # pycodestyle warnings (less severe PEP 8 issues)
+    "F",      # pyflakes (unused imports, undefined names, etc.)
+    "I",      # isort (import sorting and organization)
+    "N",      # pep8-naming (naming convention enforcement)
+    "UP",     # pyupgrade (modernize syntax for current Python versions)
+    "B",      # flake8-bugbear (common bug patterns and anti-patterns)
+    "A",      # flake8-builtins (prevents shadowing Python builtins)
+    "C4",     # flake8-comprehensions (better list/dict/set comprehensions)
+    "DTZ",    # flake8-datetimez (enforces timezone-aware datetime usage)
+    "ISC",    # flake8-implicit-str-concat (implicit string concatenation issues)
+    "ICN",    # flake8-import-conventions (standard import aliases like numpy as np)
+    "PIE",    # flake8-pie (miscellaneous linting improvements)
+    "PT",     # flake8-pytest-style (pytest best practices)
+    "Q",      # flake8-quotes (quote style consistency)
+    "RSE",    # flake8-raise (unnecessary exception raises)
+    "RET",    # flake8-return (return statement improvements)
+    "SIM",    # flake8-simplify (suggests simpler code alternatives)
+    "PTH",    # flake8-use-pathlib (prefer pathlib over os.path)
+    # "PL",     # pylint (comprehensive code quality rules)
+    "RUF",    # ruff-specific rules (unique to Ruff)
+    # "D",
+    # "DOC"
+]
+
+ignore = [
+    "ISC001", # conflicts with formatter
+    "PT009",
+    "PT027",
+    "D203",
+    "D213",
+    "D413"
+]
