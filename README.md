@@ -7,19 +7,18 @@ Official code for
 - Affil: Georgia Institute of Technology
 - Link: [arXiv:2605.30330](https://arxiv.org/abs/2605.30330).
 
-Diffusion-based posterior samplers must replace the intractable likelihood
-$p(\mathbf y \mid \mathbf x_t)$ at intermediate diffusion times with an inexact approximation, and
-the downstream effect of that approximation on the sampled posterior is poorly
-understood. This library provides a **finite-sample reference (FSR)**: by treating
-the prior as the empirical measure of $N$ samples, the posterior becomes
-analytically computable at every diffusion time and approaches the true posterior
-as $N \to \infty$, for any forward model and prior. Measuring the popular approximations
-(DPS, ΠiGDM, TMPD) against the FSR reveals *when, why, and how* they fail — they
-tend to under- or over-estimate the posterior spread at intermediate times,
+Diffusion-based posterior samplers must replace the intractable denoising likelihood
+$p(\mathbf y \mid \mathbf x_t)$ at intermediate diffusion times with an inexact approximation.
+The downstream effect of these approximations on the sampled posterior is poorly
+understood. This library works in the  **finite-sample regime (FSR)**: by replacing the unknown
+prior (from which we are provided finitely-many data samples) with the empirical measure of $N$ samples,
+the posterior becomes analytically computable at every diffusion time and approaches the true posterior
+as $N \to \infty$, for any forward model and prior. Testing popular moment-matching approximations
+(DPS, $\Pi$GDM, TMPD) against the FSR reveals *when, why, and how* they fail, often by
+under- or over-estimate the posterior spread at intermediate times,
 causing sensitivity to early-stopping time, inaccurate relative weighting of
 posterior modes, and hallucination of prior modes absent from the posterior (or
-likelihood modes unsupported by the prior). The FSR is agnostic to the
-approximation and to the (linear or nonlinear) forward model, so it serves as a
+likelihood modes unsupported by the prior). The FSR serves as a
 drop-in diagnostic for existing and future posterior samplers.
 
 The library is designed to be used off the shelf: bring your own prior samples and
