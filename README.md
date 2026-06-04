@@ -71,7 +71,7 @@ uv run python -m examples.quickstart
     approximation; works for any forward model. ζ-DPS adds a data-dependent
     likelihood weight.
   - `pigdm.py` — **$\Pi$GDM** (Song et al. 2023): two-moment Gaussian approximation
-    with an isotropic denoiser covariance; **linear forward models only**.
+    with an isotropic denoiser covariance; **linear forward models only**. $\pi$ $\Pi$
   - `tmpd.py` — **TMPD** (Boys et al. 2024): two-moment Gaussian approximation
     using the true denoiser covariance; **linear forward models only**.
 - `src/distributions/` — analytic priors (discrete, Gaussian, GMM) with closed-form
