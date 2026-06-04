@@ -3,7 +3,7 @@
 Official code for 
 
 - Title: *"When, why, and how do diffusion posterior samplers fail? A finite-sample lens"*
-- Authors: Benjamin A. Burns and Sara Fridovich-Keil
+- Authors: [Benjamin A. Burns](https://bburns.xyz) and [Sara Fridovich-Keil](https://sarafridov.github.io/)
 - Affil: Georgia Institute of Technology
 - Link: [arXiv:2605.30330](https://arxiv.org/abs/2605.30330).
 
