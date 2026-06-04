@@ -67,12 +67,12 @@ uv run python -m examples.quickstart
   reference**: the analytic finite-sample posterior that every approximation is
   measured against (paper §4).
 - `src/scores/` — the likelihood-score approximations the paper compares:
-  - `dps.py` — **$\sigma$-DPS / $\zeta$-DPS** (Chung et al. 2023): one-moment Dirac denoiser
+  - `dps.py` — $\sigma$-DPS / $\zeta$-DPS (Chung et al. 2023): one-moment Dirac denoiser
     approximation; works for any forward model. ζ-DPS adds a data-dependent
     likelihood weight.
-  - `pigdm.py` — **$\Pi$GDM** (Song et al. 2023): two-moment Gaussian approximation
-    with an isotropic denoiser covariance; **linear forward models only**. $\pi$ $\Pi$
-  - `tmpd.py` — **TMPD** (Boys et al. 2024): two-moment Gaussian approximation
+  - `pigdm.py` — $\Pi$GDM (Song et al. 2023): two-moment Gaussian approximation
+    with an isotropic denoiser covariance; **linear forward models only**.
+  - `tmpd.py` — TMPD (Boys et al. 2024): two-moment Gaussian approximation
     using the true denoiser covariance; **linear forward models only**.
 - `src/distributions/` — analytic priors (discrete, Gaussian, GMM) with closed-form
   marginals, denoisers, likelihoods, posteriors, and scores — the ground truth the
