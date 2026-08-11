@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">Failure taxonomy for approximate diffusion posterior samplers</title>
+  <desc id="desc">Three stressors, multimodal denoising distributions, nonlinear forward operators, and concentrated observation likelihoods, amplify the gap between moment approximations and mixture-aware conditioning. The gap can appear as spread error, mode-weighting error, unsupported modes, or early-stopping sensitivity.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#40566b"/></marker>
+    <style>
+      .trigger{fill:#eef5f2;stroke:#176b61;stroke-width:2}.core{fill:#fff1d8;stroke:#965b18;stroke-width:2.5}.effect{fill:#f2f3f8;stroke:#4a5685;stroke-width:2}.line{fill:none;stroke:#40566b;stroke-width:2;marker-end:url(#arrow)}.h{font:700 17px system-ui,sans-serif;fill:#183042}.t{font:14px system-ui,sans-serif;fill:#31485a}.label{font:600 13px system-ui,sans-serif;fill:#40566b}
+    </style>
+  </defs>
+  <rect width="960" height="430" rx="18" fill="#ffffff"/>
+  <text class="label" x="105" y="38" text-anchor="middle">STRESSORS</text>
+  <text class="label" x="480" y="38" text-anchor="middle">APPROXIMATION GAP</text>
+  <text class="label" x="820" y="38" text-anchor="middle">OBSERVED FAILURE CLASSES</text>
+  <rect class="trigger" x="25" y="65" width="220" height="72" rx="13"/>
+  <text class="h" x="135" y="94" text-anchor="middle">Multimodal denoising</text><text class="t" x="135" y="118" text-anchor="middle">mean can lie between modes</text>
+  <rect class="trigger" x="25" y="178" width="220" height="72" rx="13"/>
+  <text class="h" x="135" y="207" text-anchor="middle">Nonlinear forward map</text><text class="t" x="135" y="231" text-anchor="middle">averaging and mapping differ</text>
+  <rect class="trigger" x="25" y="291" width="220" height="72" rx="13"/>
+  <text class="h" x="135" y="320" text-anchor="middle">Concentrated likelihood</text><text class="t" x="135" y="344" text-anchor="middle">mismatch is strongly weighted</text>
+  <rect class="core" x="345" y="137" width="270" height="154" rx="18"/>
+  <text class="h" x="480" y="177" text-anchor="middle">Collapse before conditioning</text>
+  <text class="t" x="480" y="210" text-anchor="middle">likelihood at representative moments</text>
+  <text class="t" x="480" y="237" text-anchor="middle">≠</text>
+  <text class="t" x="480" y="264" text-anchor="middle">mixture-aware likelihood average</text>
+  <path class="line" d="M245 101C300 101 305 166 345 177"/><path class="line" d="M245 214H345"/><path class="line" d="M245 327C300 327 305 262 345 251"/>
+  <rect class="effect" x="715" y="55" width="220" height="65" rx="13"/><text class="h" x="825" y="84" text-anchor="middle">Posterior spread</text><text class="t" x="825" y="106" text-anchor="middle">under- or over-estimated</text>
+  <rect class="effect" x="715" y="145" width="220" height="65" rx="13"/><text class="h" x="825" y="174" text-anchor="middle">Mode weighting</text><text class="t" x="825" y="196" text-anchor="middle">relative mass is inaccurate</text>
+  <rect class="effect" x="715" y="235" width="220" height="65" rx="13"/><text class="h" x="825" y="264" text-anchor="middle">Unsupported modes</text><text class="t" x="825" y="286" text-anchor="middle">prior or likelihood mismatch</text>
+  <rect class="effect" x="715" y="325" width="220" height="65" rx="13"/><text class="h" x="825" y="354" text-anchor="middle">Early stopping</text><text class="t" x="825" y="376" text-anchor="middle">output sensitivity</text>
+  <path class="line" d="M615 172C658 172 666 88 715 88"/><path class="line" d="M615 201C659 201 669 178 715 178"/><path class="line" d="M615 230C659 230 669 268 715 268"/><path class="line" d="M615 259C658 259 666 358 715 358"/>
+</svg>

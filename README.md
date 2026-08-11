@@ -5,7 +5,8 @@ Official code for
 - Title: *"When, why, and how do diffusion posterior samplers fail? A finite-sample lens"*
 - Authors: [Benjamin A. Burns](https://bburns.xyz) and [Sara Fridovich-Keil](https://sarafridov.github.io/)
 - Affil: Georgia Institute of Technology
-- Link: [arXiv:2605.30330](https://arxiv.org/abs/2605.30330).
+- Project page: [voilalab.github.io/diagnosing-posterior-sampling](https://voilalab.github.io/diagnosing-posterior-sampling/)
+- Paper: [arXiv:2605.30330](https://arxiv.org/abs/2605.30330)
 
 Diffusion-based posterior samplers must replace the intractable denoising likelihood
 $p(\mathbf y \mid \mathbf x_t)$ at intermediate diffusion times with an inexact approximation.
@@ -31,7 +32,6 @@ a forward model, and recover posterior samples in a few lines.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 # Install dependencies
 uv sync                    # runtime + test dependencies
-uv sync --group docs       # docs toolchain (optional)
 ```
 
 ## Quickstart
@@ -91,7 +91,9 @@ uv run python -m examples.quickstart
     `sampling.py` (generic reverse-EM loop), `heatmap.py` (the `(t, x)` density
     heatmaps that form the paper's headline figures).
 - `tests/` — pytest suite.
-- `docsrc/` — Sphinx documentation source (build from `docsrc/source/`).
+- `docsrc/` — renderer-independent project page source: structured metadata in
+  `project.yml`, publication content in `index.md`, and relative web assets in
+  `assets/`. See `docsrc/README.md` for the source contract.
 
 ## Producing figures
 

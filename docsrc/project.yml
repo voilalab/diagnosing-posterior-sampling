@@ -1,0 +1,38 @@
+schema_version: 1
+slug: diagnosing-posterior-sampling
+title: "When, Why, and How Do Diffusion Posterior Samplers Fail?"
+subtitle: "A Finite-Sample Lens"
+description: "A finite-sample framework for diagnosing how likelihood approximations distort diffusion posterior sampling."
+year: 2026
+venue: arXiv
+authors:
+  - name: Benjamin A. Burns
+    url: https://bburns.xyz
+  - name: Sara Fridovich-Keil
+    url: https://sarafridov.github.io/
+affiliation: Georgia Institute of Technology
+arxiv: "2605.30330"
+math: true
+source: index.md
+hero_image: assets/conceptual-flow.svg
+links:
+  - label: Paper PDF
+    url: https://arxiv.org/pdf/2605.30330
+  - label: arXiv
+    url: https://arxiv.org/abs/2605.30330
+  - label: Code
+    url: https://github.com/voilalab/diagnosing-posterior-sampling
+sections:
+  - id: overview
+    label: Overview
+  - id: finite-sample-reference
+    label: Finite-sample reference
+  - id: failures
+    label: Failures
+  - id: citation
+    label: Citation
+assets:
+  - path: assets/conceptual-flow.svg
+    alt: Conceptual flow from finite prior samples to a finite-sample posterior reference used to diagnose approximate likelihood scores.
+  - path: assets/failure-taxonomy.svg
+    alt: Taxonomy linking approximation stressors to observed posterior-sampling failure modes.
