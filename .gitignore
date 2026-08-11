@@ -6,11 +6,6 @@ examples/outputs/
 examples/*.pdf
 examples/*.png
 
-# Doc build artifacts
-_build
-docsrc/source/_examples/
-docsrc/source/api/_autosummary/
-
 __pycache__
 .pytest_cache
 .ruff_cache
