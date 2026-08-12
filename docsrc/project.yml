@@ -15,6 +15,7 @@ arxiv: "2605.30330"
 math: true
 source: index.md
 hero_image: assets/conceptual-flow.svg
+hero_caption: A finite-sample reference makes posterior-sampling approximation error visible.
 links:
   - label: Paper PDF
     url: https://arxiv.org/pdf/2605.30330

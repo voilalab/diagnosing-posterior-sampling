@@ -1,3 +1,5 @@
+<div class="jumbotron project-section-card">
+
 ## Overview
 
 Diffusion posterior samplers solve inverse problems by combining an unconditional
@@ -23,6 +25,10 @@ distribution with a tractable moment approximation: DPS uses a Dirac mass at
 the denoiser mean, while $\Pi$GDM and TMPD use Gaussian approximations for
 linear forward models. This work asks what those substitutions change, and
 uses a finite-sample reference to expose the resulting errors.
+
+</div>
+
+<div class="jumbotron project-section-card">
 
 ## Finite-sample reference
 
@@ -74,6 +80,10 @@ unknown population prior. The repository implements the score and reverse-time
 sampler, alongside analytic testbeds and the approximations studied in the
 paper.
 
+</div>
+
+<div class="jumbotron project-section-card">
+
 ## Failures
 
 Moment approximations simplify a mixture before evaluating its interaction
@@ -83,10 +93,13 @@ over prior atoms. These operations need not agree. The discrepancy is most
 revealing when the denoising distribution is multimodal, the forward operator
 is nonlinear, or the observation likelihood is sharply concentrated.
 
-![Taxonomy showing multimodal denoising distributions, nonlinear forward operators, and concentrated likelihoods as approximation stressors connected to spread errors, mode-weighting errors, unsupported modes, and early-stopping sensitivity.](assets/failure-taxonomy.svg)
+<figure class="well-collapse project-figure-card" markdown="0">
+  <img src="assets/failure-taxonomy.svg" alt="Taxonomy showing multimodal denoising distributions, nonlinear forward operators, and concentrated likelihoods as approximation stressors connected to spread errors, mode-weighting errors, unsupported modes, and early-stopping sensitivity." />
+  <figcaption>Failure taxonomy synthesized from the paper's analysis. It communicates relationships, not measured magnitudes or frequencies.</figcaption>
+</figure>
 
-*Failure taxonomy synthesized from the paper's analysis. It communicates
-relationships, not measured magnitudes or frequencies.*
+<div class="highlight-callout">
+<span class="highlight-label">Failure modes</span>
 
 The paper diagnoses several consequences:
 
@@ -99,14 +112,25 @@ The paper diagnoses several consequences:
 - **Early-stopping sensitivity.** Errors accumulated along the reverse process
   can make the output depend strongly on where integration is stopped.
 
+</div>
+
 The finite-sample reference does not remove finite-data error. Its role is to
 separate that error from the additional approximation introduced by a
 posterior-sampling method.
 
+</div>
+
+<div class="jumbotron project-section-card">
+
 ## Citation
 
-```bibtex
-@misc{burns2026whenwhydiffusionposterior,
+<div class="bib-panel project-bibtex-panel" markdown="0">
+  <div class="project-bibtex-toolbar">
+    <span>BibTeX</span>
+    <button type="button" class="btn btn-info bib-btn" data-copy-target="project-bibtex-entry" data-copy-status="project-bibtex-status">Copy</button>
+    <span id="project-bibtex-status" class="project-copy-status" role="status" aria-live="polite"></span>
+  </div>
+  <pre><code id="project-bibtex-entry">@misc{burns2026whenwhydiffusionposterior,
   title         = {When, Why, and How Do Diffusion Posterior Samplers Fail? A Finite-Sample Lens},
   author        = {Benjamin A. Burns and Sara Fridovich-Keil},
   year          = {2026},
@@ -114,5 +138,7 @@ posterior-sampling method.
   archivePrefix = {arXiv},
   primaryClass  = {cs.LG},
   url           = {https://arxiv.org/abs/2605.30330}
-}
-```
+}</code></pre>
+</div>
+
+</div>
